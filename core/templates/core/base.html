@@ -1,4 +1,5 @@
-{% import compress static wagtailuserbar %}
+{% load compress static wagtailuserbar %}
+
 
 <!DOCTYPE html>
 <html>
@@ -15,7 +16,7 @@
         {% endblock %}
     </head>
 
-    <body class="{% block body_class %}">
+    <body class="{% block body_class %}{% endblock %}">
         {% wagtailuserbar %}
 
         {% block content %}{% endblock %}
