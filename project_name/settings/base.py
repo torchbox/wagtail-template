@@ -21,10 +21,7 @@ SECRET_KEY = '{{ secret_key }}'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
 TEMPLATE_DEBUG = True
-
-ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -68,7 +65,6 @@ MIDDLEWARE_CLASSES = (
 )
 
 ROOT_URLCONF = '{{ project_name }}.urls'
-
 WSGI_APPLICATION = '{{ project_name }}.wsgi.application'
 
 
@@ -92,13 +88,9 @@ DATABASES = {
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
 
 
@@ -120,6 +112,7 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     'compressor.finders.CompressorFinder',
 )
+
 
 SOUTH_MIGRATION_MODULES = {
     'taggit': 'taggit.south_migrations',
