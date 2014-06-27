@@ -1,0 +1,5 @@
+*.pyc
+.venv/
+{{ project_name }}/settings/local.py
+static/
+media/
