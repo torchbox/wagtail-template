@@ -9,6 +9,7 @@
 
         {% compress css %}
             {# Global stylesheets #}
+            <link rel="stylesheet" type="text/x-scss" href="{% static 'core/css/core.scss' %}">
         {% endcompress %}
 
         {% block extra_css %}
@@ -23,6 +24,7 @@
 
         {% compress js %}
             {# Global javascript #}
+            <script type="text/javascript" src="{% static 'core/js/core.js' %}"></script>
         {% endcompress %}
 
         {% block extra_js %}
