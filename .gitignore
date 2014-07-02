@@ -1,5 +1,5 @@
 *.pyc
-.venv/
-*/settings/local.py
-static/
-media/
+/.venv/
+/*/settings/local.py
+/static/
+/media/
