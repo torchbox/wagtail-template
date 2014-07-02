@@ -17,7 +17,7 @@ class Migration(DataMigration):
             model='homepage', app_label='core', defaults={'name': 'Homepage'})
 
         homepage = orm['core.HomePage'].objects.create(
-            title="Welcome to your new Wagtail site!",
+            title="Homepage",
             slug='home',
             content_type=homepage_content_type,
             path='00010001',
