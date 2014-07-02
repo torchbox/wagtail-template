@@ -8,3 +8,5 @@ Fabric==1.9.0
 
 # Production requirements
 elasticutils==0.8.2
+django-redis-cache==0.13.0
+django-celery==3.1.10
