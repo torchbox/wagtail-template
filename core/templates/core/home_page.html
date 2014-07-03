@@ -3,8 +3,15 @@
 
 {% block content %}
     <h1>Welcome to your new wagtail site!</h1>
-    <p>If you haven't already given the documentation a read, head over to <a href="http://wagtail.readthedocs.org/">http://wagtail.readthedocs.org</a></p>
+   
+    <p>A database connection has been automatically configured in <code>settings/base.py</code> for a database called "<strong>{{ project_name }}</strong>". You'll need to install PostgreSQL yourself if it isn't already present, then create a database e.g <code>createdb -Upostgres {{ project_name }}</code>.</p>
+    <p>Once that's done:</p>
+    <ol>
+        <li><code>./manage.py syncdb</code></li>
+        <li><code>./manage.py migrate</code></li>
+        <li><code>./manage.py runserver</code></li>
+    </ol>
     
-    <h2>Get up and running</h2>
-    <p>A database connection has been automatically configured in <code>settings/base.py</code> for a database called "<strong>{{ project_name }}</strong>". You will need to install PostgreSQL yourself if it isn't already present.</p>
+    <p>If you haven't already given the documentation a read, head over to <a href="http://wagtail.readthedocs.org/">http://wagtail.readthedocs.org</a> to start building on Wagtail</p>
+
 {% endblock %}
