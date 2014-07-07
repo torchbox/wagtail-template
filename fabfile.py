@@ -8,6 +8,9 @@ env.roledefs = {
 
 @roles('app')
 def deploy():
+    # Remove this line when you're happy that this Fabfile is correct
+    raise RuntimeError("Please check the fabfile before using it")
+
     base_dir = '/usr/local/django/{{ project_name }}'
     virtualenv_dir = '/usr/local/django/virtualenvs/{{ project_name }}'
     python = virtualenv_dir + '/bin/python'
