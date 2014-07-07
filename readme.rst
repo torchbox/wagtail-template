@@ -14,7 +14,7 @@ new ones.)
 
 To start a new project, run the following commands::
 
-    $ django-admin.py startproject my_lovely_website --template=https://github.com/torchbox/wagtail-template/zipball/master --name=Vagrantfile --ext=rst
+    $ django-admin.py startproject my_lovely_website --template=https://github.com/torchbox/wagtail-template/zipball/master --name=Vagrantfile --ext=html,rst
     $ cd my_lovely_website
     $ vagrant up
     $ vagrant ssh
