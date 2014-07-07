@@ -23,10 +23,10 @@ def deploy():
         with settings(sudo_user=user):
             sudo('git pull origin master')
             sudo(pip + ' install -r requirements/production.txt')
-            sudo(python + ' manage.py syncdb --settings={{ project_name }}.settings.production --noinput')
-            sudo(python + ' manage.py migrate --settings={{ project_name }}.settings.production --noinput')
-            sudo(python + ' manage.py collectstatic --settings={{ project_name }}.settings.production --noinput')
-            sudo(python + ' manage.py compress --settings={{ project_name }}.settings.production')
-            sudo(python + ' manage.py update_index --settings={{ project_name }}.settings.production')
+            sudo(python + ' {{ project_name }}/manage.py syncdb --settings={{ project_name }}.settings.production --noinput')
+            sudo(python + ' {{ project_name }}/manage.py migrate --settings={{ project_name }}.settings.production --noinput')
+            sudo(python + ' {{ project_name }}/manage.py collectstatic --settings={{ project_name }}.settings.production --noinput')
+            sudo(python + ' {{ project_name }}/manage.py compress --settings={{ project_name }}.settings.production')
+            sudo(python + ' {{ project_name }}/manage.py update_index --settings={{ project_name }}.settings.production')
 
     sudo('supervisorctl restart ' + supervisor_task)
