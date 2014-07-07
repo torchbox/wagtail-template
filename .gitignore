@@ -4,3 +4,4 @@
 /*/*/settings/local.py
 /static/
 /media/
+Vagrantfile.local
