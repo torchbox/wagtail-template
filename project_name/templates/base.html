@@ -15,7 +15,7 @@
 
         {% templatetag openblock %} compress css {% templatetag closeblock %}
             {# Global stylesheets #}
-            <link rel="stylesheet" type="text/x-scss" href="{% templatetag openblock %} static 'core/css/core.scss' {% templatetag closeblock %}">
+            <link rel="stylesheet" type="text/x-scss" href="{% templatetag openblock %} static 'css/{{ project_name }}.scss' {% templatetag closeblock %}">
         {% templatetag openblock %} endcompress {% templatetag closeblock %}
 
         {% templatetag openblock %} block extra_css {% templatetag closeblock %}
@@ -30,7 +30,7 @@
 
         {% templatetag openblock %} compress js {% templatetag closeblock %}
             {# Global javascript #}
-            <script type="text/javascript" src="{% templatetag openblock %} static 'core/js/core.js' {% templatetag closeblock %}"></script>
+            <script type="text/javascript" src="{% templatetag openblock %} static 'js/{{ project_name }}.js' {% templatetag closeblock %}"></script>
         {% templatetag openblock %} endcompress {% templatetag closeblock %}
 
         {% templatetag openblock %} block extra_js {% templatetag closeblock %}
