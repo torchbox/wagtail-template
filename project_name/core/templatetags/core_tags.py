@@ -2,8 +2,6 @@ from django import template
 from django.conf import settings
 from django.template.defaultfilters import slugify
 
-from wagtail.wagtailcore.utils import camelcase_to_underscore
-
 
 register = template.Library()
 
