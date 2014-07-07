@@ -1,5 +1,8 @@
+{% extends "base.html" %}
+
 {% load static core_tags %}
-{% extends "core/base.html" %}
+
+{% block body_class %}template-{{ self|content_type_slugified }}{% endblock %}
 
 {% block content %}
     <h1>Welcome to your new wagtail site!</h1>
