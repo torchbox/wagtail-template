@@ -171,7 +171,7 @@ BROKER_URL = 'redis://'
 CACHES = {
     'default': {
         'BACKEND': 'redis_cache.cache.RedisCache',
-        'LOCATION': '127.0.0.1:6379:1',
+        'LOCATION': '127.0.0.1:6379',
         'KEY_PREFIX': '{{ project_name }}',
         'OPTIONS': {
             'CLIENT_CLASS': 'redis_cache.client.DefaultClient',
