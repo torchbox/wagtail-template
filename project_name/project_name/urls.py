@@ -23,6 +23,7 @@ urlpatterns = patterns('',
     url(r'', include(wagtail_urls)),
 )
 
+
 if settings.DEBUG:
     from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
