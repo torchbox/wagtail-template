@@ -80,6 +80,9 @@ class Migration(DataMigration):
             'Meta': {'object_name': 'Page'},
             'content_type': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'pages'", 'to': "orm['contenttypes.ContentType']"}),
             'depth': ('django.db.models.fields.PositiveIntegerField', [], {}),
+            'expire_at': ('django.db.models.fields.DateTimeField', [], {'null': 'True', 'blank': 'True'}),
+            'expired': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
+            'go_live_at': ('django.db.models.fields.DateTimeField', [], {'null': 'True', 'blank': 'True'}),
             'has_unpublished_changes': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'live': ('django.db.models.fields.BooleanField', [], {'default': 'True'}),
@@ -94,8 +97,8 @@ class Migration(DataMigration):
             'url_path': ('django.db.models.fields.CharField', [], {'max_length': '255', 'blank': 'True'})
         },
         'wagtailcore.site': {
-            'Meta': {'object_name': 'Site'},
-            'hostname': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '255', 'db_index': 'True'}),
+            'Meta': {'unique_together': "(('hostname', 'port'),)", 'object_name': 'Site'},
+            'hostname': ('django.db.models.fields.CharField', [], {'max_length': '255', 'db_index': 'True'}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'is_default_site': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
             'port': ('django.db.models.fields.IntegerField', [], {'default': '80'}),
