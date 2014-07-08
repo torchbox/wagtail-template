@@ -22,9 +22,8 @@ su - vagrant -c "/usr/local/bin/virtualenv $VIRTUALENV_DIR && \
 echo "workon $PROJECT_NAME" >> /home/vagrant/.bashrc
 
 
-# Set execute permissions on manage.py and runtests.py, as they get lost if we build from a zip file
+# Set execute permissions on manage.py as they get lost if we build from a zip file
 chmod a+x $DJANGO_DIR/manage.py
-chmod a+x $PROJECT_DIR/runtests.py
 
 
 # Run syncdb/migrate/update_index
