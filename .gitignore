@@ -6,3 +6,4 @@
 /media/
 /.vagrant/
 Vagrantfile.local
+/docs/_build/
