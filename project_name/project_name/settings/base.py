@@ -151,7 +151,7 @@ TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
 )
 
 TEMPLATE_DIRS = (
-    normpath(join(PROJECT_ROOT, 'templates')),
+    normpath(join(DJANGO_ROOT, 'templates')),
 )
 
 
