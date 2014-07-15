@@ -12,7 +12,7 @@ from os.path import abspath, basename, dirname, join, normpath
 from sys import path
 
 # Absolute filesystem path to the Django project directory:
-DJANGO_ROOT = dirname(dirname(abspath(__file__)))
+DJANGO_ROOT = dirname(dirname(dirname(abspath(__file__))))
 
 # Absolute filesystem path to the top-level project folder:
 PROJECT_ROOT = dirname(DJANGO_ROOT)
