@@ -1,6 +1,6 @@
 {% templatetag openblock %} extends "base.html" {% templatetag closeblock %}
 
-{% templatetag openblock %} load static core_tags {% templatetag closeblock %}
+{% templatetag openblock %} load static {{ project_name }}_utils {% templatetag closeblock %}
 
 {% templatetag openblock %} block body_class {% templatetag closeblock %}template-{% templatetag openvariable %} self|content_type|slugify {% templatetag closevariable %}{% templatetag openblock %} endblock {% templatetag closeblock %}
 

@@ -3,23 +3,37 @@ from __future__ import unicode_literals
 
 from south.utils import datetime_utils as datetime
 from south.db import db
-from south.v2 import SchemaMigration
+from south.v2 import DataMigration
 from django.db import models
 
 
-class Migration(SchemaMigration):
+class Migration(DataMigration):
+
+    depends_on = (
+        ('wagtailcore', '0002_initial_data'),
+    )
 
     def forwards(self, orm):
-        # Adding model 'HomePage'
-        db.create_table('core_homepage', (
-            ('page_ptr', self.gf('django.db.models.fields.related.OneToOneField')(to=orm['wagtailcore.Page'], unique=True, primary_key=True)),
-        ))
-        db.send_create_signal('core', ['HomePage'])
+        orm['wagtailcore.Page'].objects.get(id=2).delete()
 
+        homepage_content_type, created = orm['contenttypes.contenttype'].objects.get_or_create(
+            model='homepage', app_label='home', defaults={'name': 'Homepage'})
+
+        homepage = orm['home.HomePage'].objects.create(
+            title="Homepage",
+            slug='home',
+            content_type=homepage_content_type,
+            path='00010001',
+            depth=2,
+            numchild=0,
+            url_path='/home/',
+        )
+
+        orm['wagtailcore.site'].objects.create(
+            hostname='localhost', root_page=homepage, is_default_site=True)
 
     def backwards(self, orm):
-        # Deleting model 'HomePage'
-        db.delete_table('core_homepage')
+        pass
 
     models = {
         'auth.group': {
@@ -58,7 +72,7 @@ class Migration(SchemaMigration):
             'model': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '100'})
         },
-        'core.homepage': {
+        'home.homepage': {
             'Meta': {'object_name': 'HomePage', '_ormbases': ['wagtailcore.Page']},
             'page_ptr': ('django.db.models.fields.related.OneToOneField', [], {'to': "orm['wagtailcore.Page']", 'unique': 'True', 'primary_key': 'True'})
         },
@@ -81,7 +95,16 @@ class Migration(SchemaMigration):
             'slug': ('django.db.models.fields.SlugField', [], {'max_length': '50'}),
             'title': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
             'url_path': ('django.db.models.fields.CharField', [], {'max_length': '255', 'blank': 'True'})
+        },
+        'wagtailcore.site': {
+            'Meta': {'unique_together': "(('hostname', 'port'),)", 'object_name': 'Site'},
+            'hostname': ('django.db.models.fields.CharField', [], {'max_length': '255', 'db_index': 'True'}),
+            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'is_default_site': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
+            'port': ('django.db.models.fields.IntegerField', [], {'default': '80'}),
+            'root_page': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'sites_rooted_here'", 'to': "orm['wagtailcore.Page']"})
         }
     }
 
-    complete_apps = ['core']
+    complete_apps = ['home']
+    symmetrical = True

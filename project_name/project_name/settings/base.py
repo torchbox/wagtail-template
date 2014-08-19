@@ -65,7 +65,8 @@ INSTALLED_APPS = (
     'wagtail.wagtailredirects',
     'wagtail.wagtailforms',
 
-    'core',
+    'utils',
+    'home',
 )
 
 MIDDLEWARE_CLASSES = (
