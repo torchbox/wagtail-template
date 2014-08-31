@@ -3,7 +3,6 @@ South==1.0.0
 psycopg2==2.5.2
 elasticsearch==1.1.1
 django-redis-cache==0.13.0
-django-celery==3.1.10
 wagtail==0.5
 
 # Developer tools

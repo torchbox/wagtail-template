@@ -160,17 +160,6 @@ TEMPLATE_DIRS = (
 )
 
 
-# Celery settings
-# http://celery.readthedocs.org/en/latest/configuration.html
-
-import djcelery
-
-djcelery.setup_loader()
-
-CELERY_SEND_TASK_ERROR_EMAILS = True
-BROKER_URL = 'redis://'
-
-
 # Use Redis as the cache backend for extra performance
 
 CACHES = {
