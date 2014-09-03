@@ -22,7 +22,7 @@ def deploy():
     with cd(base_dir):
         with settings(sudo_user=user):
             sudo('git pull origin master')
-            sudo(pip + ' install -r requirements/production.txt')
+            sudo(pip + ' install -r requirements.txt')
             sudo(python + ' {{ project_name }}/manage.py syncdb --settings={{ project_name }}.settings.production --noinput')
             sudo(python + ' {{ project_name }}/manage.py migrate --settings={{ project_name }}.settings.production --noinput')
             sudo(python + ' {{ project_name }}/manage.py collectstatic --settings={{ project_name }}.settings.production --noinput')
