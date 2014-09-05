@@ -8,7 +8,7 @@ Wagtail template
 Setup
 =====
 
-Make sure that you have Django 1.6 installed on your machine.
+Make sure that you have Django installed on your machine.
 
 To start a new project, run the following commands::
 
