@@ -21,6 +21,7 @@ def deploy():
     with cd(base_dir):
         run('git pull origin master')
         run(pip + ' install -r requirements.txt')
+        run(python + ' {{ project_name }}/manage.py syncdb --settings={{ project_name }}.settings.production --noinput')
         run(python + ' {{ project_name }}/manage.py migrate --settings={{ project_name }}.settings.production --noinput')
         run(python + ' {{ project_name }}/manage.py collectstatic --settings={{ project_name }}.settings.production --noinput')
         run(python + ' {{ project_name }}/manage.py compress --settings={{ project_name }}.settings.production')
