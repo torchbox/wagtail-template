@@ -28,8 +28,8 @@ path.append(DJANGO_ROOT)
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/{{ docs_version }}/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '{{ secret_key }}'
+# Do not set SECRET_KEY or LDAP password or any other sensitive data here.
+# Instead, create a local.py file on the server.
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -92,7 +92,6 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': '{{ project_name }}',
         'USER': 'postgres',
-        'PASSWORD': '',
         'HOST': '',  # Set to empty string for localhost.
         'PORT': '',  # Set to empty string for default.
         'CONN_MAX_AGE': 600,  # number of seconds database connections should persist for

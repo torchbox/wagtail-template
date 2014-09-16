@@ -4,8 +4,10 @@ from .base import *
 DEBUG = True
 TEMPLATE_DEBUG = True
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+SECRET_KEY = '{{ secret_key }}'
+DATABASES['default']['PASSWORD'] = ''
 
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 try:
     from .local import *
