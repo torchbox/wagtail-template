@@ -28,8 +28,8 @@ path.append(DJANGO_ROOT)
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/{{ docs_version }}/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '{{ secret_key }}'
+# Do not set SECRET_KEY or LDAP password or any other sensitive data here.
+# Instead, create a local.py file on the server.
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
