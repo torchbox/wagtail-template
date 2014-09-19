@@ -27,8 +27,7 @@ chmod a+x $DJANGO_DIR/manage.py
 
 
 # Run syncdb/migrate/update_index
-su - vagrant -c "$PYTHON $DJANGO_DIR/manage.py syncdb --noinput && \
-                 $PYTHON $DJANGO_DIR/manage.py migrate --noinput && \
+su - vagrant -c "$PYTHON $DJANGO_DIR/manage.py migrate --noinput && \
                  $PYTHON $DJANGO_DIR/manage.py update_index"
 
 
