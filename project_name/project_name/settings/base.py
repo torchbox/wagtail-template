@@ -136,11 +136,6 @@ COMPRESS_PRECOMPILERS = (
     ('text/x-scss', 'django_libsass.SassCompiler'),
 )
 
-COMPRESS_CSS_FILTERS = [
-    'compressor.filters.css_default.CssAbsoluteFilter',
-    'compressor.filters.cssmin.CSSMinFilter',
-]
-
 
 # Taggit 0.12 has moved its south migrations to separate folder
 # http://django-taggit.readthedocs.org/en/latest/
