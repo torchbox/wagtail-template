@@ -16,8 +16,6 @@ def deploy():
     python = virtualenv_dir + '/bin/python'
     pip = virtualenv_dir + '/bin/pip'
 
-    supervisor_task = '{{ project_name }}'
-
     with cd(base_dir):
         run('git pull origin master')
         run(pip + ' install -r requirements.txt')
@@ -26,4 +24,5 @@ def deploy():
         run(python + ' {{ project_name }}/manage.py compress --settings={{ project_name }}.settings.production')
         run(python + ' {{ project_name }}/manage.py update_index --settings={{ project_name }}.settings.production')
 
-    sudo('supervisorctl restart ' + supervisor_task)
+    # 'restart' should be an alias to a script that restarts the web server
+    run('restart')
