@@ -4,6 +4,7 @@ elasticsearch==1.2.0
 django-redis-cache==0.13.0
 wagtail==0.8.1
 cssmin==0.2.0
+django-htmlmin==0.7.0
 
 # Developer tools
 Fabric==1.9.0
