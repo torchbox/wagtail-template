@@ -12,7 +12,7 @@ Make sure that you have Django installed on your machine.
 
 To start a new project, run the following commands::
 
-    django-admin.py startproject my_lovely_website --template=https://github.com/torchbox/wagtail-template/zipball/master --name=Vagrantfile --ext=html,rst,md,pp
+    django-admin.py startproject my_lovely_website --template=https://github.com/torchbox/wagtail-template/zipball/master --name=Vagrantfile,Dockerfile --ext=html,rst,md,pp
     cd my_lovely_website
     vagrant up
     vagrant ssh
