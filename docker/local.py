@@ -8,6 +8,12 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '').split(',') or []
 
 
+# Static files
+# http://whitenoise.evans.io/en/latest/#quickstart-for-django-apps
+
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
+
 # Database
 
 DATABASE_URL = os.environ.get('DATABASE_URL', None)

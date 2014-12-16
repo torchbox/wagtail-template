@@ -18,6 +18,7 @@ ADD {{ project_name }}/ /usr/local/app/
 # Docker configuration
 ADD docker/uwsgi.ini /usr/local/app/uwsgi.ini
 ADD docker/local.py /usr/local/app/{{ project_name }}/settings/local.py
+ADD docker/wsgi_docker.py /usr/local/app/my_lovely_website/wsgi_docker.py
 ADD docker/bin/ /usr/local/bin/
 
 ENV DJANGO_SETTINGS_MODULE my_lovely_website.settings.production
@@ -27,7 +28,7 @@ ENV DJANGO_SETTINGS_MODULE my_lovely_website.settings.production
 RUN DATABASE_URL=sqlite:///tmp/db.sqlite SECRET_KEY=build dj migrate --noinput > /dev/null
 RUN DATABASE_URL=sqlite:///tmp/db.sqlite SECRET_KEY=build dj collectstatic --noinput
 RUN DATABASE_URL=sqlite:///tmp/db.sqlite SECRET_KEY=build dj compress
-RUN find /usr/local/static -type f -not -name '*.gz' -exec sh -c 'gzip -9c "{}" > "{}.gz"' \;
+RUN python -m whitenoise.gzip /usr/local/static/
 
 VOLUME /usr/local/media/
 WORKDIR /usr/local/app
