@@ -184,3 +184,12 @@ WAGTAILSEARCH_BACKENDS = {
         'INDEX': '{{ project_name }}',
     },
 }
+
+# Celery settings
+# When you have multiple sites using the same Redis server,
+# specify a different Redis DB. e.g. redis://localhost/5
+
+BROKER_URL = 'redis://'
+
+CELERY_SEND_TASK_ERROR_EMAILS = True
+CELERYD_LOG_COLOR = False
