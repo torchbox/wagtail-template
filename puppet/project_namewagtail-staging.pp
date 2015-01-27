@@ -19,6 +19,8 @@ class wagtail::site::staging::{{ project_name }}wagtail inherits wagtail::site::
         staticdir        => "static",
         mediadir         => "media",
         deploy           => [ '@admin' ], # CHANGEME
+        python_version   => '2.7-local',
+        celeryd          => true,
         admins           => {
             # CHANGEME
             # List of users to send error emails to. Eg:
