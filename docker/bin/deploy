@@ -1,4 +1,0 @@
-#!/bin/sh
-
-dj migrate --noinput
-dj update_index
