@@ -14,7 +14,6 @@ ADD {{ project_name }}/ /usr/local/app/
 ADD docker/uwsgi.ini /usr/local/app/uwsgi.ini
 ADD docker/local.py /usr/local/app/{{ project_name }}/settings/local.py
 ADD docker/wsgi_docker.py /usr/local/app/my_lovely_website/wsgi_docker.py
-RUN chmod +x /usr/local/bin/*
 
 ENV PYTHONPATH /usr/local/app
 ENV DJANGO_SETTINGS_MODULE my_lovely_website.settings.production
