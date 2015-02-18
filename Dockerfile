@@ -1,9 +1,4 @@
-FROM ubuntu:14.04
-
-# APT requirements
-RUN apt-get update -y
-RUN apt-get install -y build-essential python python-dev python-setuptools libpq-dev libjpeg-dev libtiff-dev zlib1g-dev libfreetype6-dev liblcms2-dev
-RUN easy_install -U pip
+FROM kaedroho/django-base
 
 # PIP requirements
 ADD docker/requirements.txt docker-requirements.txt
