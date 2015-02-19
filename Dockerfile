@@ -13,10 +13,10 @@ ADD {{ project_name }}/ /app/
 # Docker configuration
 ADD docker/uwsgi.ini /app/uwsgi.ini
 ADD docker/local.py /app/{{ project_name }}/settings/local.py
-ADD docker/wsgi_docker.py /app/my_lovely_website/wsgi_docker.py
+ADD docker/wsgi_docker.py /app/{{ project_name }}/wsgi_docker.py
 
 ENV PYTHONPATH /app/
-ENV DJANGO_SETTINGS_MODULE my_lovely_website.settings.production
+ENV DJANGO_SETTINGS_MODULE {{ project_name }}.settings.production
 
 # Static files
 # Note: we need to create a temporary database in order for "dj compress" to work
