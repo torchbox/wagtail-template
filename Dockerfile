@@ -1,4 +1,4 @@
-FROM kaedroho/django-base
+FROM kaedroho/django-base:v1-py3
 
 # PIP requirements
 ADD docker/requirements.txt docker-requirements.txt
