@@ -2,10 +2,10 @@ FROM kaedroho/django-base
 
 # PIP requirements
 ADD docker/requirements.txt docker-requirements.txt
-RUN pip install -r docker-requirements.txt
+RUN pip3 install -r docker-requirements.txt
 
 ADD requirements.txt requirements.txt
-RUN pip install -r requirements.txt
+RUN pip3 install -r requirements.txt
 
 # Project source code
 ADD {{ project_name }}/ /app/
@@ -23,7 +23,7 @@ ENV DJANGO_SETTINGS_MODULE my_lovely_website.settings.production
 RUN DATABASE_URL=sqlite:///tmp/db.sqlite SECRET_KEY=build django-admin migrate --noinput > /dev/null
 RUN DATABASE_URL=sqlite:///tmp/db.sqlite SECRET_KEY=build django-admin collectstatic --noinput
 RUN DATABASE_URL=sqlite:///tmp/db.sqlite SECRET_KEY=build django-admin compress
-RUN python -m whitenoise.gzip /static/
+RUN python3 -m whitenoise.gzip /static/
 
 VOLUME /media/
 WORKDIR /app/
