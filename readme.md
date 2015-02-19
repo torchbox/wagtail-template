@@ -1,12 +1,11 @@
 {% if False %}
 
-================
 Wagtail template
 ================
 
 
 Setup
-=====
+-----
 
 Make sure that you have Django installed on your machine.
 
@@ -26,6 +25,5 @@ machine, exported to the VM as a shared folder; code editing and Git operations 
 
 {% endif %}
 
-==================
 {{ project_name }}
 ==================
