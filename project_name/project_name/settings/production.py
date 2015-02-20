@@ -17,12 +17,6 @@ COMPRESS_CSS_FILTERS = [
 ]
 
 
-# Add HTML minification
-MIDDLEWARE_CLASSES += (
-    'htmlmin.middleware.HtmlMinifyMiddleware',
-    'htmlmin.middleware.MarkRequestMiddleware',
-)
-
 try:
     from .local import *
 except ImportError:
