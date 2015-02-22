@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+# Post compile hook for when building in a Heroku-like environment
+
+
+export PYTHONPATH=/app/{{ project_name }}/
+
+# Collect, compile and compress static files
+django-admin collectstatic --noinput
+django-admin compress
+python -m whitenoise.gzip /app/static/

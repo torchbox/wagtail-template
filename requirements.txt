@@ -5,6 +5,11 @@ django-redis==3.8.2
 wagtail==0.8.5
 celery==3.1.17
 
+# Requirements for running in PaaS environment
+uwsgi==2.0.9
+whitenoise==1.0.6
+dj-database-url==0.3.0
+
 # Developer tools
 Fabric==1.9.0
 Sphinx==1.2.2

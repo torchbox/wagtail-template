@@ -1,3 +1,5 @@
+from .production import *
+
 import os
 import dj_database_url
 
@@ -42,15 +44,11 @@ if not DATABASE_URL:
             POSTGRES_DB,
         )
 
-    else:
-        # Fallback to SQLite
-        # Note: any database operations performed against this SQLite file will
-        # not be perisisted between commands.
-        DATABASE_URL = 'sqlite://{{ project_name }}.db'
 
-DATABASES = {
-    'default': dj_database_url.parse(DATABASE_URL),
-}
+if DATABASE_URL:
+    DATABASES = {
+        'default': dj_database_url.parse(DATABASE_URL),
+    }
 
 
 # Elasticsearch
