@@ -49,6 +49,7 @@ INSTALLED_APPS = (
     'compressor',
     'taggit',
     'modelcluster',
+    'djcelery',
 
     'wagtail.wagtailcore',
     'wagtail.wagtailadmin',
