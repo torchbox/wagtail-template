@@ -5,6 +5,8 @@ django-redis==3.8.2
 wagtail==0.9
 celery==3.1.17
 django-celery==3.1.16
+django-libsass>=0.2
+Pillow>=2.6.1
 
 # Developer tools
 Fabric==1.9.0
