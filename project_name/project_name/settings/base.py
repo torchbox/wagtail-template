@@ -63,6 +63,7 @@ INSTALLED_APPS = (
     'wagtail.wagtailforms',
 
     'utils',
+    'images',
     'home',
 )
 
@@ -176,6 +177,8 @@ LOGIN_URL = 'wagtailadmin_login'
 LOGIN_REDIRECT_URL = 'wagtailadmin_home'
 
 WAGTAIL_SITE_NAME = "{{ project_name }}"
+
+WAGTAILIMAGES_IMAGE_MODEL = 'images.Image'
 
 # Use Elasticsearch as the search backend for extra performance and better search results
 WAGTAILSEARCH_BACKENDS = {
