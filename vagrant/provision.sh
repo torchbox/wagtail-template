@@ -38,5 +38,6 @@ alias dj="django-admin"
 alias djrun="dj runserver 0.0.0.0:8000"
 
 source $VIRTUALENV_DIR/bin/activate
+export PS1="[$PROJECT_NAME \W]\\$ "
 cd $PROJECT_DIR
 EOF
