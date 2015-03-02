@@ -20,7 +20,10 @@ class wagtail::site::staging::{{ project_name }}wagtail inherits wagtail::site::
         mediadir         => "media",
         deploy           => [ '@admin' ], # CHANGEME
         python_version   => '2.7-local',
-        celeryd          => true,
+        manade_daemons   => [
+            'celery worker -C -c1 -A {{ project_name }}',
+            'celery beat -A {{ project_name }} -C -s $TMPDIR/celerybeat.db --pidfile=',
+        ],
         admins           => {
             # CHANGEME
             # List of users to send error emails to. Eg:
