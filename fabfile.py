@@ -20,10 +20,10 @@ def deploy_staging():
     with cd(base_dir):
         run('git pull origin master')
         run(pip + ' install -r requirements.txt')
-        run(python + ' {{ project_name }}/manage.py migrate --settings={{ project_name }}.settings.production --noinput')
-        run(python + ' {{ project_name }}/manage.py collectstatic --settings={{ project_name }}.settings.production --noinput')
-        run(python + ' {{ project_name }}/manage.py compress --settings={{ project_name }}.settings.production')
-        run(python + ' {{ project_name }}/manage.py update_index --settings={{ project_name }}.settings.production')
+        run(python + ' manage.py migrate --settings={{ project_name }}.settings.production --noinput')
+        run(python + ' manage.py collectstatic --settings={{ project_name }}.settings.production --noinput')
+        run(python + ' manage.py compress --settings={{ project_name }}.settings.production')
+        run(python + ' manage.py update_index --settings={{ project_name }}.settings.production')
 
     # 'restart' should be an alias to a script that restarts the web server
     run('restart')
@@ -42,10 +42,10 @@ def deploy_production():
     with cd(base_dir):
         run('git pull origin master')
         run(pip + ' install -r requirements.txt')
-        run(python + ' {{ project_name }}/manage.py migrate --settings={{ project_name }}.settings.production --noinput')
-        run(python + ' {{ project_name }}/manage.py collectstatic --settings={{ project_name }}.settings.production --noinput')
-        run(python + ' {{ project_name }}/manage.py compress --settings={{ project_name }}.settings.production')
-        run(python + ' {{ project_name }}/manage.py update_index --settings={{ project_name }}.settings.production')
+        run(python + ' manage.py migrate --settings={{ project_name }}.settings.production --noinput')
+        run(python + ' manage.py collectstatic --settings={{ project_name }}.settings.production --noinput')
+        run(python + ' manage.py compress --settings={{ project_name }}.settings.production')
+        run(python + ' manage.py update_index --settings={{ project_name }}.settings.production')
 
     # 'restart' should be an alias to a script that restarts the web server
     run('restart')

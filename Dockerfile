@@ -8,7 +8,7 @@ ADD requirements.txt requirements.txt
 RUN pip3 install -r requirements.txt
 
 # Project source code
-ADD {{ project_name }}/ /app/
+ADD / /app/
 
 # Docker configuration
 ADD docker/uwsgi.ini /app/uwsgi.ini

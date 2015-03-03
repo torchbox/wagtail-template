@@ -6,7 +6,6 @@ class wagtail::site::production::{{ project_name }}wagtail inherits wagtail::sit
         manage_ip        => false,
         manage_db        => true,
         manage_user      => true,
-        appsubdir        => '{{ project_name }}',
         settings         => '{{ project_name }}/settings',
         wsgi_module      => '{{ project_name }}.wsgi',
         requirements     => 'requirements.txt',

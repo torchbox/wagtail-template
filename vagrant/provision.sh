@@ -3,7 +3,6 @@
 PROJECT_NAME=$1
 
 PROJECT_DIR=/vagrant
-DJANGO_DIR=$PROJECT_DIR/$PROJECT_NAME
 VIRTUALENV_DIR=/home/vagrant/.virtualenvs/$PROJECT_NAME
 
 PYTHON=$VIRTUALENV_DIR/bin/python
@@ -21,17 +20,17 @@ su - vagrant -c "$PIP install -r $PROJECT_DIR/requirements.txt"
 
 
 # Set execute permissions on manage.py as they get lost if we build from a zip file
-chmod a+x $DJANGO_DIR/manage.py
+chmod a+x $PROJECT_DIR/manage.py
 
 
 # Run syncdb/migrate/update_index
-su - vagrant -c "$PYTHON $DJANGO_DIR/manage.py migrate --noinput && \
-                 $PYTHON $DJANGO_DIR/manage.py update_index"
+su - vagrant -c "$PYTHON $PROJECT_DIR/manage.py migrate --noinput && \
+                 $PYTHON $PROJECT_DIR/manage.py update_index"
 
 
 # Add a couple of aliases to manage.py into .bashrc
 cat << EOF >> /home/vagrant/.bashrc
-export PYTHONPATH=$DJANGO_DIR
+export PYTHONPATH=$PROJECT_DIR
 export DJANGO_SETTINGS_MODULE=$PROJECT_NAME.settings.dev
 
 alias dj="django-admin"
