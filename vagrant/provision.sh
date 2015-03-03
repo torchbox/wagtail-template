@@ -14,8 +14,14 @@ su - vagrant -c "createdb $PROJECT_NAME"
 
 
 # Virtualenv setup for project
-su - vagrant -c "/usr/local/bin/virtualenv $VIRTUALENV_DIR"
+su - vagrant -c "pyvenv $VIRTUALENV_DIR"
+# Replace previous line with this if you are using Python 2
+# su - vagrant -c "/usr/local/bin/virtualenv $VIRTUALENV_DIR"
+
 su - vagrant -c "echo $PROJECT_DIR > $VIRTUALENV_DIR/.project"
+
+
+# Install PIP requirements
 su - vagrant -c "$PIP install -r $PROJECT_DIR/requirements.txt"
 
 
