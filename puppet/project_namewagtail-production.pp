@@ -20,6 +20,7 @@ class wagtail::site::production::{{ project_name }}wagtail inherits wagtail::sit
         mediadir         => "media",
         deploy           => [ '@admin' ], # CHANGEME
         python_version   => '2.7-local',
+        pg_version       => '9.4',
         manage_daemons   => [
             'celery worker -C -c1 -A {{ project_name }}',
             'celery beat -A {{ project_name }} -C -s $TMPDIR/celerybeat.db --pidfile=',
