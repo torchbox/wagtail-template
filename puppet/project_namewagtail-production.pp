@@ -18,7 +18,7 @@ class wagtail::site::production::{{ project_name }}wagtail inherits wagtail::sit
         django_version   => '1.7',
         staticdir        => "static",
         mediadir         => "media",
-        deploy           => [ '@admin' ], # CHANGEME
+        deploy           => [ '@admin', '@wagtail' ], # CHANGEME
         python_version   => '2.7-local',
         pg_version       => '9.4',
         manage_daemons   => [
