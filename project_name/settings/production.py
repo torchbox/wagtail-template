@@ -62,19 +62,19 @@ DATABASES = {
 # Redis
 # Redis location can either be passed through with REDIS_HOST or REDIS_SOCKET
 
-if 'REDIS_HOST': in env:
+if 'REDIS_HOST' in env:
     REDIS_LOCATION = env['REDIS_HOST']
     BROKER_URL = 'redis://%s' % env['REDIS_HOST']
 
 elif 'REDIS_SOCKET' in env:
-    REDIS_LOCATION 'unix://%s' % env['REDIS_SOCKET']
+    REDIS_LOCATION = 'unix://%s' % env['REDIS_SOCKET']
     BROKER_URL = 'redis+socket://%s' % env['REDIS_SOCKET']
 
 else:
     REDIS_LOCATION = None
 
 
-if REDIS_LOCATION is not None
+if REDIS_LOCATION is not None:
     CACHES = {
         'default': {
             'BACKEND': 'redis_cache.cache.RedisCache',
@@ -101,27 +101,41 @@ if 'ELASTICSEARCH_URL' in env:
 
 # Logging
 
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'mail_admins': {
+            'level': 'ERROR',
+            'class': 'django.utils.log.AdminEmailHandler',
+        },
+    },
+    'loggers': {
+        'django.request': {
+            'handlers':     ['mail_admins'],
+            'level':        'ERROR',
+            'propagate':    False,
+        },
+        'django.security': {
+            'handlers':     ['mail_admins'],
+            'level':        'ERROR',
+            'propagate':    False,
+        },
+    },
+}
+
+
+# Log errors to file
 if 'ERROR_LOG' in env:
-    LOGGING = {
-        'version': 1,
-        'disable_existing_loggers': False,
-        'handlers': {
-            'file': {
-                'level':        'ERROR',
-                'class':        'logging.handlers.RotatingFileHandler',
-                'filename':     env['ERROR_LOG'],
-                'maxBytes':     5242880, # 5MB
-                'backupCount':  5
-            },
-        },
-        'loggers': {
-            'django.request': {
-                'handlers':     ['file'],
-                'level':        'ERROR',
-                'propagate':    True,
-            },
-        },
+    LOGGING['handlers']['errors_file'] = {
+        'level':        'ERROR',
+        'class':        'logging.handlers.RotatingFileHandler',
+        'filename':     env['ERROR_LOG'],
+        'maxBytes':     5242880, # 5MB
+        'backupCount':  5
     }
+    LOGGING['loggers']['django.request']['handlers'].append('errors_file')
+    LOGGING['loggers']['django.security']['handlers'].append('errors_file')
 
 
 try:
