@@ -6,6 +6,7 @@ class wagtail::site::staging::{{ project_name }}wagtail inherits wagtail::site::
         manage_ip        => false,
         manage_db        => true,
         manage_user      => true,
+        manage_settings  => false,
         appsubdir        => '{{ project_name }}',
         settings         => '{{ project_name }}/settings',
         wsgi_module      => '{{ project_name }}.wsgi',
