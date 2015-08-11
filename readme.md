@@ -3,6 +3,9 @@
 Wagtail template
 ================
 
+THIS PROJECT IS NO LONGER MAINTAINED
+
+Use the new ``wagtail-cookiecutter`` repo instead: https://github.com/torchbox/wagtail-cookiecutter
 
 Setup
 -----
